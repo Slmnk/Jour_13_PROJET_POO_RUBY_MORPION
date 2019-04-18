@@ -14,7 +14,7 @@ class Player
     @name = gets.chomp
     puts "Avec quel signe veux-tu jouer? (X ou O)"
     print ">"
-    @sign = gets.chomp
+    @sign = gets.chomp[0]
   end
 
 

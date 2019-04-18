@@ -66,22 +66,22 @@ class Board
     when "A3"
       @a3.state = current_player.sign
       @all_board_cases_from_rows_array.delete("A3")
-    when "A1"
+    when "B1"
       @b1.state = current_player.sign
       @all_board_cases_from_rows_array.delete("B1")
-    when "A1"
+    when "B2"
       @b2.state = current_player.sign
       @all_board_cases_from_rows_array.delete("B2")
-    when "A1"
+    when "B3"
       @b3.state = current_player.sign
       @all_board_cases_from_rows_array.delete("B3")
-    when "A1"
+    when "C1"
       @c1.state = current_player.sign
       @all_board_cases_from_rows_array.delete("A1")
-    when "A1"
+    when "C2"
       @c2.state = current_player.sign
       @all_board_cases_from_rows_array.delete("C2")
-    when "A1"
+    when "C3"
       @c3.state = current_player.sign
       @all_board_cases_from_rows_array.delete("C3")
 
@@ -93,35 +93,32 @@ class Board
 
       def victory?(current_player, status)
         #TO DO : une méthode qui vérifie le plateau et indique s'il y a un vainqueur ou match nul
-
-        if (@a1.state == @a2.state) && (@a2.state == @a3.state) && (@a1.state != "_")
-          puts "#{current_player.name} a gagné!\n"
-          return true
-        elsif (@b1.state == @b2.state) && (@b2.state == @b3.state) && (@b1.state != "_")
-          puts "#{current_player.name} a gagné!\n"
-          return true
-        elsif (@c1.state == @c2.state) && (@c2.state == @c3.state) && (@c1.state != "_")
-          puts "#{current_player.name} a gagné!\n"
-          return true
-        elsif (@a1.state == @b1.state) && (@b1.state == @c1.state) && (@a1.state != "_")
-          puts "#{current_player.name} a gagné!\n"
-          return true
-        elsif (@a2.state == @b2.state) && (@b2.state == @b3.state) && (@a2.state != "_")
-          puts "#{current_player.name} a gagné!\n"
-          return true
-        elsif (@a3.state == @b3.state) && (@b3.state == @c3.state) && (@a3.state != "_")
-          puts "#{current_player.name} a gagné!\n"
-          return true
-        elsif (@a1.state == @b2.state) && (@b2.state == @b3.state) && (@a1.state != "_")
-          puts "#{current_player.name} a gagné!\n"
-          return true
-        elsif (@a3.state == @b2.state) && (@b2.state == @c1.state) && (@a3.state != "_")
-          puts "#{current_player.name} a gagné!\n"
-          return true
+      if (@a1.state == @a2.state) && (@a2.state == @a3.state) && (@a1.state != "_")
+        puts "#{current_player.name} a gagné!\n"
+        return true
+      elsif (@b1.state == @b2.state) && (@b2.state == @b3.state) && (@b1.state != "_")
+        puts "#{current_player.name} a gagné!\n"
+        return true
+      elsif (@c1.state == @c2.state) && (@c2.state == @c3.state) && (@c1.state != "_")
+        puts "#{current_player.name} a gagné!\n"
+        return true
+      elsif (@a1.state == @b1.state) && (@b1.state == @c1.state) && (@a1.state != "_")
+        puts "#{current_player.name} a gagné!\n"
+        return true
+      elsif (@a2.state == @b2.state) && (@b2.state == @c2.state) && (@a2.state != "_")
+        puts "#{current_player.name} a gagné!\n"
+        return true
+      elsif (@a3.state == @b3.state) && (@b3.state == @c3.state) && (@a3.state != "_")
+        puts "#{current_player.name} a gagné!\n"
+        return true
+      elsif (@a1.state == @b2.state) && (@b2.state == @c3.state) && (@a1.state != "_")
+        puts "#{current_player.name} a gagné!\n"
+        return true
+      elsif (@a3.state == @b2.state) && (@b2.state == @c1.state) && (@a3.state != "_")
+        puts "#{current_player.name} a gagné!\n"
+        return true
 
         else
-          puts "Match nul!"
-
         end
     end
 end

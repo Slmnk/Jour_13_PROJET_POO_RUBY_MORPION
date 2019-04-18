@@ -1,8 +1,8 @@
 #ceci est le jeu. Cela initialise tout, lance une partie (avec une victoire ou un nul à la fin) permet de jouer un tour, de voir sir la partie est finie, etc.
 
 $:.unshift(File.expand_path'/home/veridis-quote/PROGRAMME_THP/Jour_13_PROJET_POO_RUBY_MORPION/lib', __FILE__)
-require 'board'
 require 'player'
+require 'board'
 
 
 class Game
@@ -26,14 +26,22 @@ class Game
     #TO DO : méthode faisant appelle aux méthodes des autres classes (notamment à l'instance de Board). Elle affiche le plateau, demande au joueur ce qu'il joue, vérifie si un joueur a gagné, passe au joueur suivant si la partie n'est pas finie.
 
     while @status == "en cours"
+
       Show.new.show_board(@board) #affiche le jeu
       @board.play_turn(@current_player)
 
       #on check si il y a une victoire
       if @board.victory?(@current_player, @status) == true
         @status = @current_player
-        puts "--" * 30
+        puts ""
         Show.new.show_board(@board)
+      end
+
+      # passe au joueur suivant
+      if @current_player == @player1
+        @current_player = @player2
+      else
+        @current_player = @player1
       end
 
       # compteur de tours + check s'il y a match nul
@@ -59,6 +67,7 @@ class Game
       @board = Board.new
       @status = "en cours"
       @count_turns = 0
+      turn
     else
       game_end
     end
