@@ -1,5 +1,10 @@
 #ceci est le jeu. Cela initialise tout, lance une partie (avec une victoire ou un nul à la fin) permet de jouer un tour, de voir sir la partie est finie, etc.
 
+$:.unshift(File.expand_path'/home/veridis-quote/PROGRAMME_THP/Jour_13_PROJET_POO_RUBY_MORPION/lib', __FILE__)
+require 'board'
+require 'player'
+
+
 class Game
   #TO DO : la classe a plusieurs attr_accessor: le current_player (égal à un objet Player), le status (en cours, nul ou un objet Player s'il gagne), le Board et un array contenant les 2 joueurs.
 
@@ -47,7 +52,7 @@ class Game
   def new_round
     # TO DO : relance une partie en initialisant un nouveau board mais en gardant les mêmes joueurs.
 
-    puts "Veux-tu relancer une partie? Tapes sur y si oui, n si non."
+    puts "Veux-tu relancer une partie ? Entres Y si oui, N si non."
     print "> "
     answer = gets.chomp.upcase
     if answer == "Y"

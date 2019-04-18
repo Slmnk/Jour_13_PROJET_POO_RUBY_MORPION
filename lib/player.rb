@@ -1,4 +1,6 @@
 #ceci est un joueur. Il doit y avoir 2 instances de cette classe lors d'une partie.
+$:.unshift(File.expand_path'/home/veridis-quote/PROGRAMME_THP/Jour_13_PROJET_POO_RUBY_MORPION/lib', __FILE__)
+require 'game'
 
 class Player
   #TO DO : la classe a 2 attr_reader, son nom et sa valeur (X ou O).

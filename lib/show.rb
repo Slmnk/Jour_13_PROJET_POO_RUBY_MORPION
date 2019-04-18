@@ -1,5 +1,5 @@
 # ceci est une classe qui permet l'affichage visuel du board (plateau), une sorte de view. Elle affichera l'état du plateau de jeu à un instant donné.
-require 'pry'
+
 class Show
 
   def show_board(board)
@@ -11,14 +11,12 @@ class Show
         print petit_arr[k]
         k += 1
       0.upto (2) do |j|
-        print "NIAMA" + board.rows_array[i][j].state_to.s
+        print "|" + board.rows_array[i][j].state.to_s
       end
-      print "FOU"
+      print "|"
       puts ""
     end
     puts ""
   end
 
 end
-
-binding.pry

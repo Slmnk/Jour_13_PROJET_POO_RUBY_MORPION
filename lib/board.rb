@@ -1,5 +1,13 @@
 # c'est le plateau de jeu. Il doit y avoir une instance de cette classe lors d'une partie.
 
+$:.unshift(File.expand_path'/home/veridis-quote/PROGRAMME_THP/Jour_13_PROJET_POO_RUBY_MORPION/lib', __FILE__)
+require 'application'
+require 'board_case'
+require 'game'
+require 'player'
+require 'show'
+
+
 class Board
   #TO DO : la classe a 1 attr_accessor : un array/hash qui contient les BoardCases.
   #Optionnellement on peut aussi lui rajouter un autre sous le nom @count_turn pour compter le nombre de coups joué
@@ -29,7 +37,7 @@ class Board
 
   end
 
-  def play_turn
+  def play_turn(current_player)
     #TO DO : une méthode qui :
     #1) demande au bon joueur ce qu'il souhaite faire
     #2) change la BoardCase jouée en fonction de la valeur du joueur (X ou O)
@@ -39,7 +47,7 @@ class Board
     puts "#{current_player.name}, que veux-tu jouer?"
     print "> "
     player_case = gets.chomp.upcase
-    while !@all_board_cases_from_rows_array?(player_case) # on teste si la case est disponible
+    while !@all_board_cases_from_rows_array.include?(player_case) # on teste si la case est disponible
       puts "Il faut rentrer une case disponible"
       print "> "
       player_case = gets.chomp.upcase
@@ -116,3 +124,4 @@ class Board
 
         end
     end
+end
