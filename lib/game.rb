@@ -67,6 +67,7 @@ class Game
       @board = Board.new
       @status = "en cours"
       @count_turns = 0
+      puts "Ok! La partie de jeu recommence!"
       turn
     else
       game_end
